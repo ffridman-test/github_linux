@@ -1,0 +1,16 @@
+;
+; BIND data file for txel.systems zone.
+; File managed by puppet.
+;
+$ORIGIN	txel.systems.
+$TTL	604800
+@	IN	SOA	im-bono3-dns03-ng1.txel.systems. sistemas@txel.systems. (
+		1476385162		; Serial
+		604800		; Refresh
+		86400		; Retry
+		2419200		; Expire
+		604800	)	; Negative Cache TTL
+;
+@		IN	NS	im-bono3-dns02-sq1.txel.systems.
+@		IN	NS	im-bono3-dns03-ng1.txel.systems.
+;

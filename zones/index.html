@@ -1,0 +1,152 @@
+
+
+
+<html>
+  <head>
+    <LINK rel="stylesheet" href="./css/shared.css" style="text/css">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <title>SAP NetWeaver Application Server Java</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    
+    <script type="text/javascript">
+		function  managementConsoleLink(instanceIdAsString) {
+			var protocolFromRequest = window.location.protocol;
+			var hostnameFromRequest = window.location.hostname;
+			var mmcPort = calculateMMCPort(instanceIdAsString);
+			window.location.href = protocolFromRequest + "//" + hostnameFromRequest + ":" + mmcPort;
+		}
+
+		function calculateMMCPort(instanceIdAsString){
+			if(instanceIdAsString === "n/a"){
+				var mmcPort = parseInt(window.location.port);
+				if( isNaN(mmcPort)){
+					mmcPort = 50000;    
+				}
+				return mmcPort + 13;
+			}
+			var instanceId = parseInt(instanceIdAsString);
+			var mmcPortSuffix = 13;
+			var protocolFromRequest = window.location.protocol;
+			if(protocolFromRequest.indexOf("https") >= 0){
+				mmcPortSuffix = 14;
+			}
+			return 50000 + 100*instanceId + mmcPortSuffix; 
+		}
+    </script>
+  </head>
+<body>
+
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+                  <tr colspan="2"> 
+					<td width="5%" valign="top"><img src="css/graphics/icons/SAP_logo.gif"  align="top" style="position:relative; top:0; height:36px; width:90px;" alt="SAP NetWeaver Application Server Java"></td>
+				<td width="95%" valign="top" align="top"> <img src="css/graphics/icons/TopLine.gif" align="top" style="position:relative; top:0; left:0; height:5px; width:100%"><p><font size="4"><b>SAP NetWeaver Application Server Java</b></font></p></td>	  
+				  </tr>
+				<tr>
+					<td>&nbsp;</td> 
+					<td>&nbsp;</td>
+				</tr>
+				<tr> 
+					<td width="48" valign="top" style="position:relative; left:36px"><a href="http://help.sap.com/" target="_blank"><img src="css/graphics/picto/5_docs.gif" border="0" alt="SAP Library - SAP Library contains the complete documentation for SAP NetWeaver Application Server Java."></a></td>
+					<td width="100%" valign="top" align="left"> <p class="link-label">SAP Library</p>
+						 <p class="text">SAP Library contains the complete documentation for SAP NetWeaver Application Server Java. You can access it by choosing <i>SAP NetWeaver</i>.</p>
+	                </td>	  
+				  </tr>
+				  <tr> 
+                  </tr>
+				  
+				  
+				  <tr> 
+                    <td width="48" valign="top" style="position:relative; left:36px"><a href="/nwa" target="_blank"><img src="css/graphics/picto/caliper.gif" width="48" height="48" border="0" alt="SAP NetWeaver Administrator - A powerful administration, configuration and monitoring tool, which bundles key administrative tasks to keep your SAP NetWeaver system landscape running. SAP NetWeaver Administrator can be used in a central or local scenario. Here you access the local NetWeaver Administrator."></a></td>
+    	            <td width="60%" valign="top"><p class="link-label">SAP NetWeaver Administrator</p>
+	      	            <p class="text">A powerful administration, configuration and monitoring tool, which bundles key administrative tasks to keep your SAP NetWeaver system landscape running. SAP NetWeaver Administrator can be used in a central or local scenario. Here you access the local NetWeaver Administrator.</p>
+        	        </td>
+				  </tr>
+				  <tr> 
+				  </tr>
+				  
+				  
+				  
+				  <tr> 
+                	<td width="48" valign="top" style="position:relative; left:36px"><a href="/nwa/sysinfo" target="_blank"><img src="css/graphics/picto/2_servers.gif" width="48" height="48" border="0" alt="System Information - System information provides administrators with an overview of the system configuration and its state. It shows all of the system's instances and processes, their current state and important parameters (such as ports) that may be required for support cases, as well as the versions of the components installed."></a></td>
+                	<td width="60%" valign="top"> <p class="link-label">System Information</p>
+                  		<p class="text">System information provides administrators with an overview of the system configuration and its state. It shows all of the system's instances and processes, their current state and important parameters (such as ports) that may be required for support cases, as well as the versions of the components installed.</p>
+                	</td>
+				  </tr>
+				  <tr> 
+				  </tr>
+				  
+                  
+				  
+         		  
+				  
+				  <tr> 
+	                <td width="48" valign="top" style="position:relative; left:36px"><a href="/useradmin" target="_blank"><img src="css/graphics/picto/3_people.gif" width="48" height="48" border="0" alt="User Management - The user management administration console provides administrators with the functions they need to manage users, groups, roles, and user-related data in the User Management Engine (UME). Users without administrator permissions can use it to change their user profile."></a></td>
+    	            <td valign="top" width="60%"> <p class="link-label">User Management</p>
+	      	            <p class="text">The user management administration console provides administrators with the functions they need to manage users, groups, roles, and user-related data in the User Management Engine (UME). Users without administrator permissions can use it to change their user profile.</p>
+        	        </td>
+				  </tr>
+				  <tr> 
+				  </tr>
+            	  
+				  
+				    
+				  <tr>
+                	<td width="48" valign="top" style="position:relative; left:36px"><a href="/webdynpro/welcome/Welcome.html" target="_blank"><img src="css/graphics/picto/package_2puzzlepieces.gif" width="48" height="48" border="0" alt="Web Dynpro - Web Dynpro is a User Interface technology available within the SAP NetWeaver Developer Studio. Various Web Dynpro tools provide administrators and application developers with performance measurement and application administration capabilities. The Web Dynpro runtime is already deployed."></a></td>
+                	<td valign="top"> <p class="link-label">Web Dynpro</p>
+                		<p class="text">Web Dynpro is a User Interface technology available within the SAP NetWeaver Developer Studio. Various Web Dynpro tools provide administrators and application developers with performance measurement and application administration capabilities. The Web Dynpro runtime is already deployed. </p></td>
+				  </tr>
+				  <tr> 
+				  </tr>
+                  
+				  <tr> 
+					<td width="48" valign="top" style="position:relative; left:36px"><a href="javascript:managementConsoleLink(00)"><img src="css/graphics/picto/caliper.gif" width="48" height="48" border="0" alt="SAP Management Console - The SAP Management Console (applet version) offers administrative system access."></a></td>
+					<td width="60%" valign="top"> <p class="link-label">SAP Management Console</p>
+						<p class="text">The SAP Management Console (applet version) offers administrative system access.</p></td>
+				  </tr>
+				  <tr> 
+				  </tr>
+             	  
+				    
+				  <tr>
+	                <td width="48" valign="top" style="position:relative; left:36px"><a href="/sr_central" target="_blank"><img src="css/graphics/picto/activities.gif" width="48" height="48" border="0" alt="Services Registry - The Services Registry is a UDDI based registry that contains definitions of enterprise services and references to their metadata."></a></td>
+    	            <td valign="top"> <p class="link-label">Services Registry</p>
+      	            <p class="text">The Services Registry is a UDDI based registry that contains definitions of enterprise services and references to their metadata.</p></td>
+                  <tr> 
+    			  <tr> 
+				  </tr>
+        	      
+             	  
+				    
+				  <tr>
+					<td width="48" valign="top" style="position:relative; left:36px"><a href="/utl/UsageTypesInfo" target="_blank"><img src="css/graphics/picto/2_servers.gif" width="48" height="48" border="0" alt="Information about Usage Types - This page lists the installed usage types on this server (requires administrator authentication)"></a></td>
+					<td valign="top" width="60%"> <p class="link-label">Information about Usage Types</p>
+						<p class="text">This page lists the installed usage types on this server (requires administrator authentication)</p></td>
+				  </tr>
+    			  <tr> 
+				  </tr>
+        	      
+				  <tr>
+				    <td width="48" valign="top" style="position:relative; left:36px"><a href="https://wiki.sdn.sap.com/wiki/x/wIN3Cw" target="_blank"><img src="css/graphics/picto/NewspaperMagnifier.gif" width="48" height="48" border="0" alt="Application Server Java Troubleshooting Guide - The Troubleshooting Guide provides interactive step-by-step solutions to user problems."></a></td>
+    	            <td valign="top"> <p class="link-label">Application Server Java Troubleshooting Guide</p>
+      					 <p class="text">The Troubleshooting Guide provides interactive step-by-step solutions to user problems.</p></td>
+				  </tr>	
+                <tr> 
+				  </tr>
+             	  
+				    
+				  <tr>
+					<td width="48" valign="top" style="position:relative; left:36px"><a href="/ejbexplorer" target="_blank"><img src="css/graphics/picto/EarthCoffeebean.gif" width="48" height="48" border="0" alt="EJB Explorer - This tool allows testing, exploring and execution of the business components (Enterprise JavaBeans) deployed on the AS Java."></a></td>
+					<td valign="top" width="60%"> <p class="link-label">EJB Explorer</p>
+						<p class="text">This tool allows testing, exploring and execution of the business components (Enterprise JavaBeans) deployed on the AS Java.</p></td>
+				  </tr>
+    			  <tr> 
+				  </tr>
+        	      
+				</table>
+			  </td></tr>
+			
+	</table>
+<p>&nbsp;</p>
+</body>
+</html> 

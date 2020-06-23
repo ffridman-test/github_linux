@@ -1,0 +1,59 @@
+// File managed by Puppet.
+zone "14.16.172.IN-ADDR.ARPA" {
+type master;
+    file "/etc/bind/zones/db.14.16.172.IN-ADDR.ARPA";
+    
+};
+zone "180.164.10.IN-ADDR.ARPA" {
+type master;
+    file "/etc/bind/zones/db.180.164.10.IN-ADDR.ARPA";
+    
+};
+zone "185.164.10.IN-ADDR.ARPA" {
+type master;
+    file "/etc/bind/zones/db.185.164.10.IN-ADDR.ARPA";
+    
+};
+zone "bonoelectronico.cl" {
+type master;
+    file "/etc/bind/zones/db.bonoelectronico.cl";
+    allow-transfer { 10.110.0.81; 10.110.0.82; 10.110.0.83; 10.110.0.84; };
+    
+};
+	
+zone "txel.systems" {
+type master;
+    file "/etc/bind/zones/db.txel.systems";
+    
+};
+
+zone "cuentamedica.cl" {
+type master;
+    file "/etc/bind/zones/db.cuentamedica.cl";
+    
+};
+
+zone "i-med.cl" {
+type master;
+    file "/etc/bind/zones/db.i-med.cl";
+    
+};
+
+zone "licencia.cl" {
+type master;
+    file "/etc/bind/zones/db.licencia.cl";
+
+};
+
+zone "medpay.cl" {
+type master;
+    file "/etc/bind/zones/db.medpay.cl";
+
+};
+
+zone "autentia.cl" {
+ type slave;
+ masterfile-format text;
+ masters { 172.16.14.2; };
+ file "/etc/bind/zones/db.autentia.cl";
+};

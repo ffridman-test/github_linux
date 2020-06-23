@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://WSFonasaAfiliadoNS/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://WSFonasaAfiliadoNS/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://WSFonasaAfiliadoNS/">
+      <s:element name="CertifTrabajador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CodigoUsuario" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ClaveUsuario" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="CodigoAsegurador" type="s:short"/>
+            <s:element minOccurs="0" maxOccurs="1" name="CodigoOperador" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="RutTrabajadorNum" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="RutTrabajadorDig" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CertifTrabajadorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CertifTrabajadorResult" type="tns:RespCertifTrabajador"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RespCertifTrabajador">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Estado" type="s:short"/>
+          <s:element minOccurs="0" maxOccurs="1" name="GloEstado" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ApellidoPaterno" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ApellidoMaterno" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="NombreTrabajador" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="FechaNacimiento" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Comuna" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="GlosaComuna" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ListaEmpleadores" type="tns:ArrayOfEmpleador"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEmpleador">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Empleador" nillable="true" type="tns:Empleador"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Empleador">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RutEmpleador" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="NomRazSoc" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="UltimaCotizacion" type="s:int"/>
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CertifTrabajadorSoapIn">
+    <wsdl:part name="parameters" element="tns:CertifTrabajador"/>
+  </wsdl:message>
+  <wsdl:message name="CertifTrabajadorSoapOut">
+    <wsdl:part name="parameters" element="tns:CertifTrabajadorResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="WSFonasaAfiliadoSoap">
+    <wsdl:operation name="CertifTrabajador">
+      <wsdl:documentation>Verificar la condición previsional del beneficiario afiliado a FONASA</wsdl:documentation>
+      <wsdl:input message="tns:CertifTrabajadorSoapIn"/>
+      <wsdl:output message="tns:CertifTrabajadorSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSFonasaAfiliadoSoap" type="tns:WSFonasaAfiliadoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="CertifTrabajador">
+      <soap:operation soapAction="http://WSFonasaAfiliadoNS/CertifTrabajador" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FONASACertifTrab">
+    <wsdl:port name="WSFonasaAfiliadoSoap" binding="tns:WSFonasaAfiliadoSoap">
+      <soap:address location="http://10.110.0.229:8080/LME/FONCertifTrab"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
